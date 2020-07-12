@@ -1,0 +1,37 @@
+.pagewrap{
+    display: grid;
+    grid-template-rows: 1fr 10fr 1fr;
+    height:600px;
+    background-color: rgb(236, 234, 234);
+}
+
+.pagewrap > *{
+    font-family: Tahoma, Geneva, sans-serif;
+}
+
+.basecontainer{
+    display:grid;
+    grid-template-columns: 1.25fr 3fr;
+    background-color: rgb(236, 234, 234);
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+
+.header{
+    background-image: linear-gradient(to right,rgb(3, 105, 3),rgb(6, 192, 6));
+    color: whitesmoke;
+    display: grid;
+    padding-top: 10px;
+    grid-template-columns: 10fr 0.5fr 2fr 0.5fr 1fr 1fr 1fr;
+}
+
+footer{
+    background-color: rgb(236, 234, 234);
+    color: darkgrey;
+    text-align: end;
+}
+
+
+
+

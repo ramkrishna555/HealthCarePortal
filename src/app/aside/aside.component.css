@@ -1,0 +1,17 @@
+aside{
+    background-color: whitesmoke;
+    margin-right: 25px;
+    display: grid;
+    grid-template-rows: 0.75fr 0.5fr 5fr;
+    height: 510px;
+}
+
+.appointtype{
+    display: flex;
+}
+
+.appointtype > div{
+    flex : 1 0 0%;
+    text-align: center;
+    padding-top: 10px;
+}

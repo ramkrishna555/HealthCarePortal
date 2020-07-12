@@ -1,0 +1,26 @@
+<main class="maincontainer">
+    <div class="countsection">
+        <div class="infobox infoboxcolor1">
+            <div class="count">
+                <div style="font-size: 40px;">{{patientsRegisteredTodayCount}}</div>
+                <div style="padding-left: 10px; padding-top: 15px;font-size: small;">For today</div>
+            </div>
+            <div style="font-size: small;">New patients registered</div>
+        </div>
+        <div class="infobox infoboxcolor2">
+            <div class="count">
+                <div style="font-size: 40px;">{{appointmentsBookedToday}}</div>
+                <div style="padding-left: 10px; padding-top: 15px; font-size: small;">For today</div>
+            </div>
+            <div style="font-size: small;"> Appointments scheduled(FTAS)</div>
+        </div>
+        <div class="infobox infoboxcolor3">
+            <div class="count">
+                <div style="font-size: 40px;">{{totalAppointmentsCount}}</div>
+                <div style="padding-left: 10px; padding-top: 15px; font-size: small;">Till date</div>
+            </div>
+            <div style="font-size: small;">Appointments scheduled</div>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</main>

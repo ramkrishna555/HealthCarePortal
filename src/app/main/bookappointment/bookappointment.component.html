@@ -1,0 +1,53 @@
+
+<div class="container">
+  <div class="patient">
+    <label for="patientId" style="padding-right: 10px;">Enter patient ID:</label>
+    <input name="patientId" id="patientId" style="border-radius: 8px;" [(ngModel)]="patientdId">
+    <span *ngIf="bookAppointmentWarning" style="color: red; margin-left: 50px;">
+      Please select all the required values</span>
+    <span *ngIf="isBookingSuccess" style="margin-left: 50px; font-weight: bold;"
+    >Appointment booked successfully!!</span>
+  </div>
+  <div class="appointcontainer">
+    <div class="doctordiv">
+      <table class="doctortable">
+        <tr>
+          <th style="width:50px;">ID</th>
+          <th style="width:100px;">Name</th>
+          <th style="width:100px;">Phone</th>
+          <th style="width:100px;">Address</th>
+        </tr>
+        <tr *ngFor="let doctor of doctorsList" (click)="selectDoctor(doctor)"
+        [class.highlight] = "doctor === selectedDoctor"
+        [class.nonhighlight] = "doctor !== selectedDoctor"
+        class="mousepointer">
+          <td style="width:50px; text-align: center;">{{doctor.id}}</td>
+          <td style="width:100px;">{{doctor.name}}</td>
+          <td style="width:100px;">{{doctor.phone}}</td>
+          <td style="width:150px;">{{doctor.address}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="slots">
+      <div class="slotsheading"><span style="font-weight: bold; margin-right: 10px;">Available slots</span>
+        <input matInput [matDatepicker]="basicDatepicker" class="dateinput" [(ngModel)]="cal.selectedDate"
+                (dateChange)="dateChangeFunction($event)">
+          <mat-datepicker-toggle [for]="basicDatepicker"></mat-datepicker-toggle>
+          <mat-datepicker #basicDatepicker></mat-datepicker>
+      </div>
+      <div *ngIf = "isDoctorSelected" class="slotscontainer">
+        <div *ngFor="let slot of slots" 
+        [class]="getSlotClass(slot)" 
+        (click)="selectSlot(slot)"
+        [class.highlightSlot] = "slot === selectedSlot"
+        [class.availableslot] = "slot !== selectedSlot">
+        {{slot}}</div>
+      </div>
+      <div *ngIf = "!isDoctorSelected" style="text-align: center; margin-top: 50px;"
+      >Select a doctor to see the available slots</div>
+    </div>
+  </div>
+  <div class="btnwrapper">
+    <button type="submit" id="bookapptmt" (click)="bookAppointment()">Book Appointment</button>
+  </div>
+</div>

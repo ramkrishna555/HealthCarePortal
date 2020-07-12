@@ -1,0 +1,31 @@
+<div style="background-color: white;">
+  <div class="tablecontainer">
+    <table>
+      <tr>
+        <th>Patient Id</th>
+        <th>Patient Name</th>
+        <th>Phone No</th>
+        <th>Date of Birth</th>
+        <th>Taluk</th>
+        <th>Address</th>
+        <th>Last Visit Date</th>
+      </tr>
+      <tr *ngFor="let patient of patients;" (click)="selectPatient(patient)"
+          [class.highlight] = "patient.id === selectedPatientId"
+          [class.nonhighlight] = "patient.id !== selectedPatientId" class="mousepointer">
+        <td>{{patient.id}}</td>
+        <td>{{patient.fname}}&nbsp;{{patient.lname}}</td>
+        <td>{{patient.phone}}</td>
+        <td>{{patient.dob}}</td>
+        <td>{{patient.taluk}}</td>
+        <td>{{patient.address}}</td>
+        <td>{{patient.lastVisitDate}}</td> 
+      </tr>
+    </table>
+  </div>
+  <div class="btndiv">
+    <a [routerLink]="['/bookappointment', selectedPatientId]">
+      <button class="aptbtn mousepointer">Book appointment</button>
+    </a>
+  </div>
+</div>

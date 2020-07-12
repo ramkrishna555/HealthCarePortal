@@ -1,0 +1,18 @@
+<div style="margin-top:15px; font-size: small; overflow-y: scroll; overflow-x: hidden; height: 360px;">
+  <table style="margin:0px;">
+    <tr *ngFor="let appt of todaysAppmts">
+      <div class="patientDetails">
+        <div style="padding:3px; font-size:12px; font-weight: 550; color:rgba(2, 28, 66, 0.781);">
+          {{appt.date | date : 'dd/MM/yyyy'}} - {{appt.slot}}</div>
+        <div style="padding:3px; color:rgba(2, 28, 66, 0.781);">
+          <img img src="assets/images/patient.svg" height="15px">
+          <span style="padding-left: 8px; vertical-align: top;">
+            {{appt.patName}}</span></div>
+        <div style="padding:3px; color:rgba(2, 28, 66, 0.781);">
+          <img img src="assets/images/medical-doctor.png" height="15px">
+          <span style="padding-left: 8px; vertical-align: top;">
+            {{appt.docName}}</span></div>
+      </div>
+    </tr>
+  </table>
+</div>

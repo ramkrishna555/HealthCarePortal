@@ -1,0 +1,138 @@
+<div class="pagecontainer">
+    <h2 style="margin-bottom: 0px;padding-top: 10px;text-align: center;color: rgba(8, 25, 51, 0.781);">
+        Register new patient</h2>
+    
+    <form id="patientform"
+          novalidate #form="ngForm" (ngSubmit)="submitForm(form)" >
+        <div class="warning" *ngIf="formSubmitted && form.invalid">
+          Please fill all the fields in the form</div>
+        <div *ngIf="patientRegistered==='success'" 
+              style="font-weight: bold; margin-left: 10px;">
+            Patient registered successfully. Patient id : {{patientId}}
+        </div>
+        <div *ngIf="patientRegistered==='error'" style="color: red;">
+            Error while registering patient. Please try again
+        </div>
+        <div class = "formcontainer">
+          <div>
+            <h4 style="padding-left: 20px; color: rgba(8, 25, 51, 0.781);">Personal information</h4>
+            <div class="personalinfoform">
+                <div class="label">
+                    <label for="fname">First name:</label>
+                </div>
+                <div>
+                    <input type="text" id="fname" name="fname" size="30%" 
+                    [(ngModel)]="newPatient.fname"
+                    required
+                    minlength="2"
+                    pattern="^[A-Za-z ]+$">
+                </div>
+                <div class="label">
+                    <label for="lname">Last name:</label>
+                </div>
+                <div>
+                    <input type="text" id="lname" name="lname" size="30%" 
+                    [(ngModel)]="newPatient.lname"
+                    required
+                    minlength="2"
+                    pattern="^[A-Za-z ]+$">
+                </div>
+                <div class="label">
+                <label for="gender">Gender:</label>
+                </div>
+                <div>
+                    <input type="radio" id="male" name="gender" value="M" [(ngModel)]="newPatient.gender">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="F" [(ngModel)]="newPatient.gender">
+                    <label for="female">Female</label>
+                </div>
+                <div class="label" >
+                    <label for="dob">Date of birth:</label>
+                </div>
+                <div style="margin-top: -5px; margin-bottom: -5px;">
+                    <input id="dob" name="dob" [(ngModel)]="newPatient.dob" required
+                    [matDatepicker]="basicDatepicker" class="dateinput">
+                    <mat-datepicker-toggle [for]="basicDatepicker"></mat-datepicker-toggle>
+                    <mat-datepicker #basicDatepicker></mat-datepicker>
+                </div>
+                
+                <div class="label">
+                    <label for="aadhar">Aadhar no:</label>
+                </div>
+                <div>
+                    <input type="text" id="aadhar" name="aadhar" size="30%" 
+                    [(ngModel)]="newPatient.aadhar"
+                    required
+                    pattern="^[0-9 ]+$">
+                </div>
+                <div class="label">
+                    <label for="ayushman">Ayushman card no:</label>
+                </div>
+                <div>
+                    <input type="text" id="ayushman" name="ayushman" size="30%" 
+                    [(ngModel)]="newPatient.aayushman"
+                    required>
+                </div>
+            </div>
+          </div>
+          <div>
+            <h4 style="padding-left: 40px; color: rgba(8, 25, 51, 0.781);" >Contact information</h4>
+            <div class="contactinfoform">
+                <div class="label">
+                    <label for="phone">Phone:</label>
+                </div>
+                <div>
+                    <input type="tel" id ="phone" name="phone" size="30%" 
+                    [(ngModel)]="newPatient.phone"
+                    required
+                    minlength="10"
+                    pattern="^[0-9]+$">
+                </div>
+                <div class="label">
+                    <label for="phone">Email:</label>
+                </div>
+                <div>
+                    <input type="tel" id ="email" name="email" size="30%" 
+                    [(ngModel)]="newPatient.email" required>
+                </div>
+                <div class="label">
+                    <label for="taluk">Taluk:</label>
+                </div>
+                <div>
+                    <input type="text" id="taluk" name="taluk" size="30%" 
+                    [(ngModel)]="newPatient.taluk" required>
+                </div>
+                <div class="label">
+                    <label for="village">Village:</label>
+                </div>
+                <div>
+                    <input type="text" id="village" name="village" size="30%" 
+                    [(ngModel)]="newPatient.village" required> 
+                </div>
+                <div class="label">
+                    <label for="ward">Ward no:</label>
+                </div>
+                <div>
+                    <input type="text" id="ward" name="ward" size="30%"
+                     [(ngModel)]="newPatient.ward" required>
+                </div>
+                
+                <div class="label">
+                    <label for="address">Address:</label>
+                </div>
+                <div>
+                    <textarea rows="2" cols="32" id="address" name="address" 
+                    [(ngModel)]="newPatient.address" required></textarea>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="buttondiv">
+            <button type="submit" style="margin-right: 30px;">
+                Register</button>
+            <button type="button" style="margin-left: 30px;"
+            routerLink="/"
+            >Cancel</button>
+        </div>
+    </form>
+</div>
